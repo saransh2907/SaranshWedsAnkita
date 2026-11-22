@@ -77,7 +77,7 @@
     .intro:before,
     .intro:after {
       content: "✦";
-      position: absolute;
+      position: relative;
       color: #d8b875;
       opacity: 0.4;
       font-size: 38px;
@@ -212,7 +212,7 @@
       color: #7b592c;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      font-size: 11px;
+      font-size: 18px;
       margin-top: 16px;
       animation: bob 10s ease-in-out infinite;
     }
@@ -232,12 +232,12 @@
 
     .ribbon {
       position: absolute;
-      z-index: 5;
-      top: 52%;
+      z-index: 6;
+      top: 60%;
       left: -4%;
       width: 108%;
       height: 48px;
-      transform: translateY(-50%) rotate(-3deg);
+      transform: translateY(-50%) rotate(-10deg);
       background: linear-gradient(180deg, #d7b36d, #a77936 45%, #e5c98c 52%, #9a6b2d);
       box-shadow: 0 5px 14px rgba(43, 10, 18, 0.65);
       transition: transform 1s ease, opacity 0.8s;
@@ -249,7 +249,10 @@
       text-transform: uppercase;
       font-size: 22px;
       pointer-events: none;
-      opacity: 75%;
+      opacity: 90%;
+      /* animation: fadeUp2 4s infinite ease-in-out;
+      animation-duration: 4s !important;
+      transition-duration: 4s !important; */
     }
 
     .ribbon:before,
@@ -300,9 +303,6 @@
       cursor: pointer;
       box-shadow: 0 10px 24px rgba(16, 3, 8, 0.45);
       /* transition: transform 0.25s, box-shadow 0.25s; */
-      animation: pulse 1s infinite ease-in-out;
-      animation-duration: 4s !important;
-      transition-duration: 4s !important;
     }
 
     /* Optional: Pause the animation when the user hovers over it */
@@ -323,6 +323,7 @@
         transform: scale(1);
       }
     }
+
 
     .open-btn:hover {
       transform: translateY(-2px);
@@ -1007,6 +1008,20 @@
         transform: none;
       }
     }
+    /* @keyframes fadeUp2 {
+      0% {
+        opacity: 0;
+        transform: translateY(0px);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(0px);
+      }
+    } */
 
     @keyframes burst {
       0% {
@@ -1332,9 +1347,10 @@
           </div>
           <div class="date-reveal" id="dateReveal">
             <div class="date-inner">
-              <div class="month">Saturday · December</div>
+              <div class="month">· Saturday ·</div>
               <div class="day">12 · 12 · 2026</div>
-              <div class="month">Save the date · Jabalpur</div>
+              <div class="month">· Save the date ·</div>
+              <div class="month">· Jabalpur ·</div>
             </div>
           </div>
         </div>
@@ -1344,7 +1360,7 @@
     <!-- Page 3: Live Countdown -->
     <section class="page-slide count-slide fade" data-page="2" aria-label="Wedding Countdown">
       <div class="section-inner">
-        <div class="ornament">✧ ❀ ✧</div>
+        <div class="ornament">✧ ✧ ❀ ✧ ✧</div>
         <div class="eyebrow">Counting every moment</div>
         <h2 class="section-title">Until We Say “I Do”</h2>
         <div class="countdown" aria-live="polite">
