@@ -62,7 +62,7 @@ button, a, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 20px;
+  padding: 10px 16px;
   position: relative;
   overflow: hidden;
 }
@@ -106,7 +106,7 @@ button, a, input, select, textarea {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 24px 20px;
+  padding: 20px 16px;
 }
 
 .cover:before, .inside-cover:before {
@@ -140,9 +140,8 @@ button, a, input, select, textarea {
 }
 
 .cover-logo {
-	width: clamp(32.88%, 70%, 64.22%);
+	width: clamp(30%, 40%, 60%);
   height: auto;
-  max-height: 20%;
   object-fit: contain;
   margin: 35px auto 8px;
   filter: drop-shadow(0 4px 10px rgba(74, 16, 29, 0.15));
@@ -227,9 +226,11 @@ button, a, input, select, textarea {
   color: #fff8e4;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  
   font-size: 22px;
   font-weight: 600;
   pointer-events: none;
+  opacity: 85%;
 }
 
 .ribbon:before, .ribbon:after {
@@ -265,7 +266,19 @@ button, a, input, select, textarea {
   border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(16, 3, 8, 0.45);
-  transition: transform 0.25s, box-shadow 0.25s;
+  /* transition: transform 0.25s, box-shadow 0.25s; */
+  animation: pulse 1s infinite ease-in-out;
+  animation-duration: 4s !important;
+  transition-duration: 4s !important;
+}
+/* Optional: Pause the animation when the user hovers over it */
+.pulse-btn:hover {
+  animation-play-state: paused;
+}
+@keyframes pulse {
+  0%  { transform: scale(1);  }
+  50% { transform: scale(1.3);}
+  100%{ transform: scale(1);  }
 }
 .open-btn:hover {
   transform: translateY(-2px);
@@ -503,7 +516,6 @@ main.visible {
   flex-wrap: wrap;
   margin-top: 22px;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -519,6 +531,11 @@ main.visible {
   font-size: 14px;
   cursor: pointer;
   transition: 0.25s;
+}
+.btn-pop{
+  animation: pulse 1s infinite ease-in-out;
+  animation-duration: 4s !important;
+  transition-duration: 4s !important;
 }
 .btn:hover {
   background: var(--wine2);
@@ -776,8 +793,8 @@ main.visible {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 7px 13px 7px 8px;
-  border: 1px solid #d6b477;
+  padding: 7px 7px 7px 7px;
+  border: 2px solid #d6b477;
   border-radius: 30px;
   background: rgba(255, 248, 233, 0.94);
   backdrop-filter: blur(6px);
@@ -815,7 +832,7 @@ main.visible {
   background: #176b43;
   color: #fff;
   border: 1px solid #d6b477;
-  padding: 11px 16px;
+  padding: 11px 11px;
   font-size: 13px;
   box-shadow: 0 5px 18px rgba(36, 16, 13, 0.32);
   cursor: pointer;
@@ -948,7 +965,7 @@ main.visible {
     box-shadow: 0 0 6px rgba(183, 138, 69, 0.8);
   }
 
-  .music-player { left: 10px; bottom: 10px; padding: 6px 10px 6px 6px; gap: 7px; }
+  .music-player { left: 10px; bottom: 10px; padding: 6px 6px 6px 6px; gap: 7px; }
   .music-toggle { width: 32px; height: 32px; flex-basis: 32px; }
   .share-fab { right: 10px; bottom: 10px; padding: 9px 13px; font-size: 12px; }
 }
@@ -986,7 +1003,7 @@ main.visible {
     </div>
     <div class="ribbon" id="ribbon">A day to remember</div>
   </div>
-  <button class="open-btn" id="openBtn" type="button">Open Invitation ✦</button>
+  <button class="open-btn btn-pop" id="openBtn" type="button">Open Invitation ✦</button>
 </section>
 
 <!-- ==================== FEATURED PAGES ==================== -->
@@ -1044,7 +1061,7 @@ main.visible {
       <div class="burst" id="burst"></div>
       <p class="family">Your presence and blessings will make our day even more special.</p>
       <div class="actions">
-        <a class="btn" id="calendarBtn" target="_blank" rel="noopener">＋ Add to Google Calendar</a>
+        <a class="btn btn-pop" id="calendarBtn" target="_blank" rel="noopener">＋ Add to Google Calendar</a>
       </div>
     </div>
   </section>
@@ -1061,7 +1078,7 @@ main.visible {
         <div class="address">Vijay Nagar, Jabalpur<br>Madhya Pradesh 482002, India</div>
         <iframe class="map-frame" title="Map showing Kachnar Club and Resort, Jabalpur" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Kachnar%20Club%20and%20Resort%2C%20Vijay%20Nagar%2C%20Jabalpur%2C%20Madhya%20Pradesh&output=embed"></iframe>
         <div class="actions">
-          <a class="btn" id="directionsBtn" target="_blank" rel="noopener">↗ Open Directions</a>
+          <a class="btn btnNoEffect" id="directionsBtn" target="_blank" rel="noopener">↗ Open Directions</a>
           <button class="btn outline" id="copyBtn" type="button">▢ Copy Location Link</button>
         </div>
         <p id="copyStatus" aria-live="polite" style="font-size:13px;color:#7b633f;margin:8px 0 0"></p>
@@ -1142,7 +1159,7 @@ main.visible {
         <label for="guestMessage">A note for the couple (optional)</label>
         <textarea id="guestMessage" name="guestMessage" placeholder="Share a message or blessing..."></textarea>
 
-        <button class="btn" type="submit">Share RSVP on WhatsApp ↗</button>
+        <button class="btn btn-pop" type="submit">Share RSVP on WhatsApp ↗</button>
         <p id="rsvpStatus" aria-live="polite" style="font-size:13px;color:#80623b;margin:8px 0 0"></p>
       </form>
     </div>
@@ -1155,7 +1172,7 @@ main.visible {
       <div class="eyebrow">Your blessings mean the world</div>
       <h2 class="section-title">Leave a Blessing</h2>
       <p class="family">Send your love, good wishes and blessings to Saransh &amp; Ankita.</p>
-      <button class="btn blessing-btn" id="blessingBtn" type="button">Send your wishes on WhatsApp ↗</button>
+      <button class="btn blessing-btn btn-pop" id="blessingBtn" type="button">Send your wishes on WhatsApp ↗</button>
 
       <footer class="footer-block">
 
@@ -1183,17 +1200,17 @@ main.visible {
 <!-- Floating Music Player -->
 <div class="music-player" id="musicPlayer">
   <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" aria-pressed="false">▶</button>
-  <div class="music-copy">
+  <!-- <div class="music-copy">
     <div class="music-title">Raatan Lambiyan</div>
     <div class="music-subtitle" id="musicStatus" aria-live="polite">Tap to play</div>
-  </div>
+  </div> -->
 </div>
 <audio id="weddingMusic" preload="none" loop>
   <source src="assets/raataan-lambiyan.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Floating Share Button -->
-<button class="share-fab" id="shareBtn" type="button">↗ Share Invite</button>
+<button class="share-fab" id="shareBtn" type="button">↗</button>
 
 <script>
 // ==================== BACKGROUND MUSIC ====================
