@@ -25,3 +25,19 @@ A static, responsive, single-page wedding invitation website. No build tools or 
 - Google Calendar creates an all-day event for 12 December 2026 for the same reason.
 - Venue links use the Kachnar Club & Resort listing in Vijay Nagar, Jabalpur.
 - Fonts load from Google Fonts; if offline, browser fallback fonts are used.
+
+## Added interactive features
+- Our Story timeline (generic copy; personalize with real milestones if desired)
+- Click-to-expand photo gallery (currently illustrative stock photos; replace with the couple's own photos)
+- RSVP form that prepares a WhatsApp message for the guest to send to the family
+- Blessing message sharing via WhatsApp
+- Native invitation sharing (or copy-link fallback)
+
+## Important limitations / final personalization
+- RSVP responses are not stored in a database. Guests choose a WhatsApp recipient and send the prepared response. For direct delivery, add a confirmed family WhatsApp number or connect a form backend.
+- Gallery photos are placeholders and should be replaced with approved couple photos.
+- Background music: the supplied `Raatan Lambiyan` MP3 is bundled in `assets/raataan-lambiyan.mp3`. It attempts to start when a guest taps “Open Invitation”; the fixed music control lets guests play or pause it at any time. If the browser blocks playback, guests can tap the Play button.
+- The event time was not supplied, so countdown and calendar entry remain date-based/all-day.
+
+## Music note
+The music file is included as supplied. Confirm you have the necessary rights or permissions to publish and share the recording with the invitation.
