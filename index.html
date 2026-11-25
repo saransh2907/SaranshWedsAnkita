@@ -100,15 +100,24 @@
       height: min(710px, 80svh);
       min-height: 520px;
       perspective: 1600px;
+      -webkit-perspective: 1600px;
+      perspective-origin: 50% 50%;
+      -webkit-perspective-origin: 50% 50%;
       position: relative;
-      filter: drop-shadow(0 28px 36px rgba(18, 3, 8, 0.65));
+      /* Use a regular shadow instead of filter: filters can flatten 3D
+         transforms in Safari and cause the leaflet flip to render incorrectly. */
+      box-shadow: 0 28px 36px rgba(18, 3, 8, 0.65);
     }
 
     .leaflet {
       position: absolute;
       inset: 0;
       transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
       transition: transform 1.6s cubic-bezier(0.2, 0.75, 0.18, 1);
+      -webkit-transition: -webkit-transform 1.6s cubic-bezier(0.2, 0.75, 0.18, 1);
       z-index: 3;
     }
 
@@ -117,6 +126,7 @@
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       border: 1px solid #d5b77c;
       border-radius: 6px;
       background: linear-gradient(135deg, #fffaf0, #f2e3c6);
@@ -141,6 +151,7 @@
     .cover {
       background: radial-gradient(circle at top, #fffdf7 0%, #f1e0be 100%);
       transform-origin: left center;
+      -webkit-transform-origin: left center;
     }
 
     .cover-content {
@@ -219,6 +230,7 @@
 
     .inside-cover {
       transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
       background: linear-gradient(135deg, #fffaf0, #f0e2c7);
       animation-duration: 2s !important;
       transition-duration: 2s !important;
@@ -277,6 +289,21 @@
 
     .intro.opened .leaflet {
       transform: rotateY(-180deg);
+      -webkit-transform: rotateY(-180deg);
+    }
+
+    /* Safari/iOS: keep the 3D faces composited consistently during the flip. */
+    @supports (-webkit-touch-callout: none) {
+      .envelope {
+        overflow: visible;
+        box-shadow: 0 22px 30px rgba(18, 3, 8, 0.55);
+      }
+      .leaflet,
+      .cover,
+      .inside-cover {
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+      }
     }
 
     .intro.opened .ribbon {
